@@ -14,7 +14,8 @@
   },
   "lint-staged": {
     "*.js": [
-      "eslint --fix"
+      "eslint --fix",
+      "cross-env CI=true yarn test --bail --findRelatedTests"
     ]
   },
   "dependencies": {
@@ -27,6 +28,7 @@
   "devDependencies": {
     "@babel/core": "^7.8.6",
     "babel-preset-expo": "~8.1.0",
+    "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-plugin-import": "^2.20.2",
@@ -34,6 +36,7 @@
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^2.5.1",
     "husky": "^4.2.3",
+    "jest": "^25.2.7",
     "lint-staged": "^10.1.2"
   },
   "private": true
