@@ -1,6 +1,7 @@
 module.exports = {
   env: {
     es6: true,
+    jest: true,
   },
   extends: [
     'plugin:react/recommended',
@@ -23,4 +24,11 @@ module.exports = {
   rules: {
     'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx'] }]
   },
+  settings: {
+    "import/resolver": {
+      "babel-plugin-root-import": {
+        rootPathSuffix: "src"
+      }
+    }
+  }
 };

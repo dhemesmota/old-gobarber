@@ -5,7 +5,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "test": "jest"
   },
   "husky": {
     "hooks": {
@@ -14,9 +15,21 @@
   },
   "lint-staged": {
     "*.js": [
-      "eslint --fix",
-      "cross-env CI=true yarn test --bail --findRelatedTests"
+      "eslint --fix"
     ]
+  },
+  "jest": {
+    "preset": "@testing-library/react-native",
+    "testMatch": [
+      "**/__tests__/**/*.test.js"
+    ],
+    "collectCoverageFrom": [
+      "!src/service/api.js"
+    ],
+    "coverageDirectory": "__tests__/coverage",
+    "moduleNameMapper": {
+      "^~/(.*)": "<rootDir>/src/$1"
+    }
   },
   "dependencies": {
     "expo": "~37.0.3",
@@ -27,10 +40,14 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",
+    "@testing-library/react-native": "^5.0.3",
+    "@types/jest": "^25.2.1",
+    "babel-plugin-root-import": "^6.5.0",
     "babel-preset-expo": "~8.1.0",
     "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
+    "eslint-import-resolver-babel-plugin-root-import": "^1.1.1",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",
